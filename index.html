@@ -3,15 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SpSoftCba — Software & Bots</title>
+<title>SPC Solutions — Software & Bots</title>
 <meta name="description" content="Software, automatización, bots e IA.">
+<link rel="icon" type="image/png" href="logo.png">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#0D0D0D;--bg2:#141414;--card:#181818;--accent:#3B82F6;--text:#F0F0F0;--muted:#888;--border:#252525}
 body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh;overflow-x:hidden}
 .nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3rem;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10;background:var(--bg)}
-.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:.05em;color:var(--accent)}
+.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:.05em;color:var(--accent);text-decoration:none;display:flex;align-items:center;gap:.6rem}
+.logo img{height:32px;width:auto;display:block}
 .nav-links{display:flex;gap:2rem}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;transition:color .2s}
 .nav-links a:hover{color:var(--text)}
@@ -45,6 +47,10 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-h
 .project-links{display:flex;gap:1.5rem;flex-wrap:wrap}
 .project-link{color:var(--accent);font-size:.8rem;text-decoration:none;letter-spacing:.08em;text-transform:uppercase;font-family:'Space Grotesk',sans-serif;transition:opacity .2s}
 .project-link:hover{opacity:.7}
+.project-link.disabled{color:var(--muted);opacity:.6;cursor:default;text-transform:uppercase;letter-spacing:.08em;font-size:.8rem;font-family:'Space Grotesk',sans-serif}
+.project-link.disabled::after{content:''}
+.stat-val.soon{color:#C9A227}
+.stat-val.muted-val{color:var(--muted)}
 .project-link::after{content:' ↗'}
 .stats-panel{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:1.25rem}
 .stat-row{display:flex;justify-content:space-between;align-items:center;padding:.6rem 0;border-bottom:1px solid var(--border)}
@@ -72,6 +78,8 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-h
 .footer span{font-size:.75rem;color:var(--muted)}
 @media(max-width:700px){
   .nav,.section,.services-section,.contact-section{padding-left:1.5rem;padding-right:1.5rem}
+  .logo img{height:26px}
+  .logo{font-size:.95rem;gap:.45rem}
   .hero{padding:4rem 1.5rem 3rem}
   .project-card{grid-template-columns:1fr;padding:2rem 1.5rem;gap:1.5rem}
   .services-grid{grid-template-columns:1fr}
@@ -81,7 +89,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-h
 </head>
 <body>
 <nav class="nav">
-  <span class="logo">SpSoftCba</span>
+  <a href="#" class="logo"><img src="9d917084-f387-459c-9fda-29edc4d32bac.png" alt="SPC Solutions"><span>SPC Solutions</span></a>
   <div class="nav-links">
     <a href="#proyectos">Proyectos</a>
     <a href="#servicios">Servicios</a>
@@ -119,52 +127,69 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-h
 
     <div class="project-card">
       <div>
-        <div class="project-meta"><span class="project-num">01</span><span class="project-badge">Windows · Bot</span></div>
-        <h2>MU Online<br>Leveling Bot</h2>
-        <p>Bot de leveleo automático para MU Online. Detecta el juego en pantalla, controla el personaje y levela solo. Funciona en background.</p>
+        <div class="project-meta"><span class="project-num">01</span><span class="project-badge">Windows &middot; Bot</span></div>
+        <h2>Trading Bot</h2>
+        <p>Bot de trading automatizado. Opera segun estrategias configurables, con gestion de riesgo y registro de operaciones. En desarrollo.</p>
         <div class="project-links">
-          <a href="https://spsoftcba.github.io/mulevelingbot-landing/" class="project-link" target="_blank">Más info</a>
+          <span class="project-link disabled">Proximamente</span>
         </div>
       </div>
       <div class="stats-panel">
         <div class="stat-row"><span class="stat-label">Plataforma</span><span class="stat-val">Windows</span></div>
-        <div class="stat-row"><span class="stat-label">Descarga</span><span class="stat-val"><a href="https://spsoftcba.github.io/mulevelingbot-landing/" target="_blank">Ver landing ↗</a></span></div>
-        <div class="stat-row"><span class="stat-label">Licencia</span><span class="stat-val">De pago · con vencimiento</span></div>
-        <div class="stat-row"><span class="stat-label">Estado</span><span class="stat-val accent">● Disponible</span></div>
+        <div class="stat-row"><span class="stat-label">Descarga</span><span class="stat-val muted-val">No disponible aun</span></div>
+        <div class="stat-row"><span class="stat-label">Licencia</span><span class="stat-val">A definir</span></div>
+        <div class="stat-row"><span class="stat-label">Estado</span><span class="stat-val soon">&#9679; En desarrollo</span></div>
       </div>
     </div>
 
     <div class="project-card">
       <div>
-        <div class="project-meta"><span class="project-num">02</span><span class="project-badge">Windows · Bot</span></div>
-        <h2>Twitch Raffle<br>Monitor</h2>
-        <p>Monitor de rifas para Twitch. Detecta sorteos en el chat y anota al usuario automáticamente en tiempo real. Multi-canal.</p>
-        <div class="project-links">
-          <a href="https://spsoftcba.github.io/twitchrafflemonitor/" class="project-link" target="_blank">Más info</a>
-        </div>
-      </div>
-      <div class="stats-panel">
-        <div class="stat-row"><span class="stat-label">Plataforma</span><span class="stat-val">Windows</span></div>
-        <div class="stat-row"><span class="stat-label">Descarga</span><span class="stat-val"><a href="https://spsoftcba.github.io/twitchrafflemonitor/" target="_blank">Ver landing ↗</a></span></div>
-        <div class="stat-row"><span class="stat-label">Licencia</span><span class="stat-val">De pago · trial 24 hs</span></div>
-        <div class="stat-row"><span class="stat-label">Estado</span><span class="stat-val accent">● Disponible</span></div>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div>
-        <div class="project-meta"><span class="project-num">03</span><span class="project-badge">Android · Web</span></div>
+        <div class="project-meta"><span class="project-num">02</span><span class="project-badge">Android &middot; Web</span></div>
         <h2>MiAutoRacing</h2>
-        <p>App de gestión para talleres mecánicos. Control de órdenes de trabajo, clientes, repuestos y facturación. Disponible en Android y desde el navegador.</p>
+        <p>App de gestion para talleres mecanicos. Control de ordenes de trabajo, clientes, repuestos y facturacion. Disponible en Android y desde el navegador.</p>
         <div class="project-links">
           <a href="https://miautoracing.com" class="project-link" target="_blank">Ir al sitio</a>
         </div>
       </div>
       <div class="stats-panel">
-        <div class="stat-row"><span class="stat-label">Plataforma</span><span class="stat-val">Android · Web</span></div>
+        <div class="stat-row"><span class="stat-label">Plataforma</span><span class="stat-val">Android &middot; Web</span></div>
         <div class="stat-row"><span class="stat-label">Descarga</span><span class="stat-val"><a href="https://miautoracing.com" target="_blank">miautoracing.com</a></span></div>
         <div class="stat-row"><span class="stat-label">Licencia</span><span class="stat-val">Gratuita</span></div>
-        <div class="stat-row"><span class="stat-label">Estado</span><span class="stat-val accent">● Disponible</span></div>
+        <div class="stat-row"><span class="stat-label">Estado</span><span class="stat-val accent">&#9679; Disponible</span></div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div>
+        <div class="project-meta"><span class="project-num">03</span><span class="project-badge">Windows &middot; Bot</span></div>
+        <h2>Twitch Raffle<br>Monitor</h2>
+        <p>Monitor de rifas para Twitch. Detecta sorteos en el chat y anota al usuario automaticamente en tiempo real. Multi-canal.</p>
+        <div class="project-links">
+          <a href="https://spsoftcba.github.io/twitchrafflemonitor/" class="project-link" target="_blank">Mas info</a>
+        </div>
+      </div>
+      <div class="stats-panel">
+        <div class="stat-row"><span class="stat-label">Plataforma</span><span class="stat-val">Windows</span></div>
+        <div class="stat-row"><span class="stat-label">Descarga</span><span class="stat-val"><a href="https://spsoftcba.github.io/twitchrafflemonitor/" target="_blank">Ver landing &#8599;</a></span></div>
+        <div class="stat-row"><span class="stat-label">Licencia</span><span class="stat-val">De pago &middot; trial 24 hs</span></div>
+        <div class="stat-row"><span class="stat-label">Estado</span><span class="stat-val accent">&#9679; Disponible</span></div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div>
+        <div class="project-meta"><span class="project-num">04</span><span class="project-badge">Windows &middot; Bot</span></div>
+        <h2>MU Online<br>Leveling Bot</h2>
+        <p>Bot de leveleo automatico para MU Online. Detecta el juego en pantalla, controla el personaje y levela solo. Funciona en background.</p>
+        <div class="project-links">
+          <a href="https://spsoftcba.github.io/mulevelingbot-landing/" class="project-link" target="_blank">Mas info</a>
+        </div>
+      </div>
+      <div class="stats-panel">
+        <div class="stat-row"><span class="stat-label">Plataforma</span><span class="stat-val">Windows</span></div>
+        <div class="stat-row"><span class="stat-label">Descarga</span><span class="stat-val"><a href="https://spsoftcba.github.io/mulevelingbot-landing/" target="_blank">Ver landing &#8599;</a></span></div>
+        <div class="stat-row"><span class="stat-label">Licencia</span><span class="stat-val">De pago &middot; con vencimiento</span></div>
+        <div class="stat-row"><span class="stat-label">Estado</span><span class="stat-val accent">&#9679; Disponible</span></div>
       </div>
     </div>
 
@@ -198,13 +223,13 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-h
     <p>Escribinos por mail o Discord para conseguir una clave de prueba, comprar una licencia, o consultar por un desarrollo a medida.</p>
     <div class="contact-links">
       <a href="mailto:spsoft.adm@gmail.com" class="contact-link">spsoft.adm@gmail.com</a>
-      <a href="https://discord.com/channels/1537954700945793117/1537954750379720744" class="contact-link" target="_blank">Discord</a>
+      <a href="https://discord.gg/pg5BpxaZ6" class="contact-link" target="_blank">Discord</a>
     </div>
   </div>
 </section>
 
 <footer class="footer">
-  <span>SpSoftCba · Argentina</span>
+  <span>SPC Solutions · Argentina</span>
   <span>spsoftcba.github.io</span>
 </footer>
 </body>
