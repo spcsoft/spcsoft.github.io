@@ -10,16 +10,17 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#F6F6F4;--bg2:#FFFFFF;--card:#FFFFFF;--accent:#2563EB;--text:#161616;--muted:#5C5C5C;--border:#E4E4E0}
-body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh;overflow-x:hidden}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3rem;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10;background:var(--bg);gap:1.5rem}
-.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:.05em;color:var(--accent);text-decoration:none;display:flex;align-items:center;gap:.6rem}
-.logo img{height:36px;width:36px;display:block;border-radius:50%;object-fit:cover}
-.nav-right{display:flex;align-items:center;gap:2rem}
-.nav-links{display:flex;gap:2rem}
+html,body{overflow-x:hidden;max-width:100%}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3rem;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10;background:var(--bg);gap:1rem 1.5rem;flex-wrap:wrap;min-width:0;max-width:100%}
+.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:.05em;color:var(--accent);text-decoration:none;display:flex;align-items:center;gap:.6rem;min-width:0}
+.logo img{height:36px;width:36px;display:block;border-radius:50%;object-fit:cover;flex:none}
+.nav-right{display:flex;align-items:center;justify-content:flex-end;gap:1rem 1.5rem;flex-wrap:wrap;min-width:0;flex:1 1 auto}
+.nav-links{display:flex;gap:1.25rem 2rem;flex-wrap:wrap;min-width:0}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;transition:color .2s}
 .nav-links a:hover{color:var(--text)}
-.lang-switch{display:flex;align-items:center;gap:.15rem;border:1px solid var(--border);padding:.15rem}
-.lang-switch button{background:none;border:none;color:var(--muted);font-family:'Space Grotesk',sans-serif;font-size:.72rem;letter-spacing:.08em;cursor:pointer;padding:.35rem .5rem;transition:color .2s,background .2s}
+.lang-switch{display:flex;align-items:center;gap:.15rem;border:1px solid var(--border);padding:.15rem;flex:none}
+.lang-switch button{background:none;border:none;color:var(--muted);font-family:'Space Grotesk',sans-serif;font-size:.72rem;letter-spacing:.04em;cursor:pointer;padding:.35rem .45rem;transition:color .2s,background .2s}
 .lang-switch button:hover{color:var(--text)}
 .lang-switch button.active{color:#fff;background:var(--accent)}
 .hero{padding:6rem 3rem 5rem;max-width:900px}
@@ -91,6 +92,11 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-h
 .form-status.err{color:#e5533c}
 .footer{padding:2rem 3rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
 .footer span{font-size:.75rem;color:var(--muted)}
+@media(max-width:900px){
+  .nav{padding:1.25rem 1.5rem}
+  .nav-right{width:100%;flex-direction:column;align-items:flex-start;gap:.75rem}
+  .nav-links{gap:.85rem 1.25rem}
+}
 @media(max-width:700px){
   .nav,.why-section,.services-section,.faq-section,.contact-section{padding-left:1.5rem;padding-right:1.5rem}
   .logo img{height:30px;width:30px}
@@ -98,9 +104,8 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-h
   .hero{padding:4rem 1.5rem 3rem}
   .why-grid,.services-grid{grid-template-columns:1fr}
   .footer{padding:1.5rem;flex-direction:column;gap:.5rem;text-align:center}
-  .nav{flex-wrap:wrap}
-  .nav-right{width:100%;justify-content:space-between;gap:1rem}
-  .nav-links{gap:1.1rem}
+  .nav-right{flex-direction:column;align-items:flex-start;gap:.75rem}
+  .nav-links{gap:.85rem 1.1rem}
 }
 </style>
 </head>
@@ -122,7 +127,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-h
 </nav>
 
 <section class="hero">
-  <div class="proof"><span class="proof-dot"></span><span data-i18n="hero.proof">47 negocios ya optimizaron sus tareas</span></div>
+  <div class="proof"><span class="proof-dot"></span><span data-i18n="hero.proof">77 negocios ya optimizaron sus tareas</span></div>
   <div class="hero-tag" data-i18n="hero.tag">Apps · Bots · Automatización · Integraciones</div>
   <h1 data-i18n-html="hero.title">El trabajo repetitivo,<br><span>lo hace el software.</span></h1>
   <p data-i18n="hero.lead">Si una tarea se repite, un sistema puede ocuparse. Armamos apps, bots e inteligencia artificial que automatizan procesos, atraen clientes y unifican tus sucursales.</p>
@@ -297,7 +302,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-h
       desc:'Software, automatización, bots e IA.',
       lang:'es',
       'nav.services':'Servicios','nav.faq':'Preguntas','nav.contact':'Contacto',
-      'hero.proof':'47 negocios ya optimizaron sus tareas',
+      'hero.proof':'77 negocios ya optimizaron sus tareas',
       'hero.tag':'Apps · Bots · Automatización · Integraciones',
       'hero.title':'El trabajo repetitivo,<br><span>lo hace el software.</span>',
       'hero.lead':'Si una tarea se repite, un sistema puede ocuparse. Armamos apps, bots e inteligencia artificial que automatizan procesos, atraen clientes y unifican tus sucursales.',
@@ -340,7 +345,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-h
       desc:'Software, automation, bots and AI.',
       lang:'en',
       'nav.services':'Services','nav.faq':'FAQ','nav.contact':'Contact',
-      'hero.proof':'47 businesses already optimized their workflows',
+      'hero.proof':'77 businesses already optimized their workflows',
       'hero.tag':'Apps · Bots · Automation · Integrations',
       'hero.title':'Repetitive work<br><span>is handled by software.</span>',
       'hero.lead':'If a task keeps repeating, a system can take it. We build apps, bots and AI that automate processes, attract clients and unify your branches.',
@@ -383,7 +388,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-h
       desc:'Software, automação, bots e IA.',
       lang:'pt',
       'nav.services':'Serviços','nav.faq':'Perguntas','nav.contact':'Contato',
-      'hero.proof':'47 negócios já otimizaram suas tarefas',
+      'hero.proof':'77 negócios já otimizaram suas tarefas',
       'hero.tag':'Apps · Bots · Automação · Integrações',
       'hero.title':'O trabalho repetitivo,<br><span>o software faz.</span>',
       'hero.lead':'Se uma tarefa se repete, um sistema pode cuidar dela. Montamos apps, bots e inteligência artificial que automatizam processos, atraem clientes e unificam suas filiais.',
