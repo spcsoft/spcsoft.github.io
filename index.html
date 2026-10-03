@@ -11,12 +11,17 @@
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#F6F6F4;--bg2:#FFFFFF;--card:#FFFFFF;--accent:#2563EB;--text:#161616;--muted:#5C5C5C;--border:#E4E4E0}
 body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh;overflow-x:hidden}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3rem;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10;background:var(--bg)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3rem;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10;background:var(--bg);gap:1.5rem}
 .logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:.05em;color:var(--accent);text-decoration:none;display:flex;align-items:center;gap:.6rem}
 .logo img{height:36px;width:36px;display:block;border-radius:50%;object-fit:cover}
+.nav-right{display:flex;align-items:center;gap:2rem}
 .nav-links{display:flex;gap:2rem}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;transition:color .2s}
 .nav-links a:hover{color:var(--text)}
+.lang-switch{display:flex;align-items:center;gap:.15rem;border:1px solid var(--border);padding:.15rem}
+.lang-switch button{background:none;border:none;color:var(--muted);font-family:'Space Grotesk',sans-serif;font-size:.72rem;letter-spacing:.08em;cursor:pointer;padding:.35rem .5rem;transition:color .2s,background .2s}
+.lang-switch button:hover{color:var(--text)}
+.lang-switch button.active{color:#fff;background:var(--accent)}
 .hero{padding:6rem 3rem 5rem;max-width:900px}
 .proof{display:inline-flex;align-items:center;gap:.55rem;font-size:.78rem;color:var(--muted);border:1px solid var(--border);padding:.4rem .75rem;margin-bottom:1.5rem}
 .proof-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none}
@@ -87,156 +92,166 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-h
   .hero{padding:4rem 1.5rem 3rem}
   .services-grid{grid-template-columns:1fr}
   .footer{padding:1.5rem;flex-direction:column;gap:.5rem;text-align:center}
+  .nav{flex-wrap:wrap}
+  .nav-right{width:100%;justify-content:space-between;gap:1rem}
+  .nav-links{gap:1.1rem}
 }
 </style>
 </head>
 <body>
 <nav class="nav">
   <a href="#" class="logo"><img src="logo_software.png" alt="SPC Software"><span>SPC Software</span></a>
-  <div class="nav-links">
-    <a href="#servicios">Servicios</a>
-    <a href="#preguntas">Preguntas</a>
-    <a href="#contacto">Contacto</a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#servicios" data-i18n="nav.services">Servicios</a>
+      <a href="#preguntas" data-i18n="nav.faq">Preguntas</a>
+      <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+    </div>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" data-lang="es" class="active">ES</button>
+      <button type="button" data-lang="en">ENG</button>
+      <button type="button" data-lang="pt">PORT</button>
+    </div>
   </div>
 </nav>
 
 <section class="hero">
-  <div class="proof"><span class="proof-dot"></span>47 negocios ya optimizaron sus tareas</div>
-  <div class="hero-tag">Apps · Bots · Automatización · Integraciones</div>
-  <h1>El trabajo repetitivo,<br><span>lo hace el software.</span></h1>
-  <p>Si una tarea se repite, un sistema puede ocuparse. Armamos apps, bots e inteligencia artificial que automatizan procesos e integran tus plataformas.</p>
+  <div class="proof"><span class="proof-dot"></span><span data-i18n="hero.proof">47 negocios ya optimizaron sus tareas</span></div>
+  <div class="hero-tag" data-i18n="hero.tag">Apps · Bots · Automatización · Integraciones</div>
+  <h1 data-i18n-html="hero.title">El trabajo repetitivo,<br><span>lo hace el software.</span></h1>
+  <p data-i18n="hero.lead">Si una tarea se repite, un sistema puede ocuparse. Armamos apps, bots e inteligencia artificial que automatizan procesos e integran tus plataformas.</p>
   <div class="hero-stats">
     <div class="hero-stat">
-      <span class="hero-stat-val"><span>10</span>+ años</span>
-      <span class="hero-stat-label">de experiencia</span>
+      <span class="hero-stat-val" data-i18n-html="hero.stat1val"><span>10</span>+ años</span>
+      <span class="hero-stat-label" data-i18n="hero.stat1label">de experiencia</span>
     </div>
     <div class="hero-stat">
-      <span class="hero-stat-val">Soporte <span>activo</span></span>
-      <span class="hero-stat-label">post entrega</span>
+      <span class="hero-stat-val" data-i18n-html="hero.stat2val">Soporte <span>activo</span></span>
+      <span class="hero-stat-label" data-i18n="hero.stat2label">post entrega</span>
     </div>
     <div class="hero-stat">
-      <span class="hero-stat-val">MVPs <span>rápidos</span></span>
-      <span class="hero-stat-label">de la idea al producto</span>
+      <span class="hero-stat-val" data-i18n-html="hero.stat3val">MVPs <span>rápidos</span></span>
+      <span class="hero-stat-label" data-i18n="hero.stat3label">de la idea al producto</span>
     </div>
   </div>
   <div class="hero-actions">
-    <a href="#contacto" class="btn-primary">Hablemos</a>
-    <a href="#servicios" class="btn-ghost">Ver servicios</a>
+    <a href="#contacto" class="btn-primary" data-i18n="hero.cta">Hablemos</a>
+    <a href="#servicios" class="btn-ghost" data-i18n="hero.ghost">Ver servicios</a>
   </div>
 </section>
 
 <section class="services-section" id="servicios">
-  <div class="section-label">Servicios</div>
-  <p class="services-lead">Contanos qué te quita tiempo. Si se hace a mano y se repite, lo automatizamos o lo construimos a medida.</p>
+  <div class="section-label" data-i18n="services.label">Servicios</div>
+  <p class="services-lead" data-i18n="services.lead">Contanos qué te quita tiempo. Si se hace a mano y se repite, lo automatizamos o lo construimos a medida.</p>
   <div class="services-grid">
     <div class="service-item">
       <div class="service-icon">🗄️</div>
-      <h3>Backend y APIs</h3>
-      <p>Desarrollamos el backend completo: APIs, bases de datos, autenticación e integraciones. Sistemas robustos y escalables por dentro.</p>
-      <div class="service-tags"><span>APIs</span><span>Bases de datos</span><span>Autenticación</span></div>
+      <h3 data-i18n="s1.title">Backend y APIs</h3>
+      <p data-i18n="s1.desc">Desarrollamos el backend completo: APIs, bases de datos, autenticación e integraciones. Sistemas robustos y escalables por dentro.</p>
+      <div class="service-tags"><span data-i18n="s1.t1">APIs</span><span data-i18n="s1.t2">Bases de datos</span><span data-i18n="s1.t3">Autenticación</span></div>
     </div>
     <div class="service-item">
       <div class="service-icon">🧩</div>
-      <h3>Arquitectura de negocio</h3>
-      <p>Modelamos tus procesos y datos en una arquitectura sólida. Del proceso al sistema, pensado para crecer sin rehacerlo.</p>
-      <div class="service-tags"><span>Procesos</span><span>Datos</span><span>Para crecer</span></div>
+      <h3 data-i18n="s2.title">Arquitectura de negocio</h3>
+      <p data-i18n="s2.desc">Modelamos tus procesos y datos en una arquitectura sólida. Del proceso al sistema, pensado para crecer sin rehacerlo.</p>
+      <div class="service-tags"><span data-i18n="s2.t1">Procesos</span><span data-i18n="s2.t2">Datos</span><span data-i18n="s2.t3">Para crecer</span></div>
     </div>
     <div class="service-item">
       <div class="service-icon">🤖</div>
-      <h3>Inteligencia artificial</h3>
-      <p>Integramos IA en tus productos y procesos: asistentes, análisis de datos, visión por computadora y automatizaciones inteligentes.</p>
-      <div class="service-tags"><span>Asistentes</span><span>Análisis</span><span>Visión</span></div>
+      <h3 data-i18n="s3.title">Inteligencia artificial</h3>
+      <p data-i18n="s3.desc">Integramos IA en tus productos y procesos: asistentes, análisis de datos, visión por computadora y automatizaciones inteligentes.</p>
+      <div class="service-tags"><span data-i18n="s3.t1">Asistentes</span><span data-i18n="s3.t2">Análisis</span><span data-i18n="s3.t3">Visión</span></div>
     </div>
     <div class="service-item">
       <div class="service-icon">⚙️</div>
-      <h3>Automatización</h3>
-      <p>Scripts y procesos para automatizar tareas repetitivas, scraping, integraciones entre sistemas y flujos de trabajo.</p>
-      <div class="service-tags"><span>Tareas repetitivas</span><span>Integraciones</span><span>Flujos</span></div>
+      <h3 data-i18n="s4.title">Automatización</h3>
+      <p data-i18n="s4.desc">Scripts y procesos para automatizar tareas repetitivas, scraping, integraciones entre sistemas y flujos de trabajo.</p>
+      <div class="service-tags"><span data-i18n="s4.t1">Tareas repetitivas</span><span data-i18n="s4.t2">Integraciones</span><span data-i18n="s4.t3">Flujos</span></div>
     </div>
     <div class="service-item">
       <div class="service-icon">🦾</div>
-      <h3>Bots</h3>
-      <p>Bots que automatizan tareas y reconocen información en pantalla o video: monitoreo, control, notificaciones y seguimiento en tiempo real.</p>
-      <div class="service-tags"><span>Monitoreo</span><span>Notificaciones</span><span>Tiempo real</span></div>
+      <h3 data-i18n="s5.title">Bots</h3>
+      <p data-i18n="s5.desc">Bots que automatizan tareas y reconocen información en pantalla o video: monitoreo, control, notificaciones y seguimiento en tiempo real.</p>
+      <div class="service-tags"><span data-i18n="s5.t1">Monitoreo</span><span data-i18n="s5.t2">Notificaciones</span><span data-i18n="s5.t3">Tiempo real</span></div>
     </div>
     <div class="service-item">
       <div class="service-icon">🌐</div>
-      <h3>Desarrollo web</h3>
-      <p>Sitios y aplicaciones web a medida. Desde landings simples hasta sistemas con backend, base de datos y panel de administración.</p>
-      <div class="service-tags"><span>Landings</span><span>Sistemas</span><span>Panel admin</span></div>
+      <h3 data-i18n="s6.title">Desarrollo web</h3>
+      <p data-i18n="s6.desc">Sitios y aplicaciones web a medida. Desde landings simples hasta sistemas con backend, base de datos y panel de administración.</p>
+      <div class="service-tags"><span data-i18n="s6.t1">Landings</span><span data-i18n="s6.t2">Sistemas</span><span data-i18n="s6.t3">Panel admin</span></div>
     </div>
     <div class="service-item">
       <div class="service-icon">📱</div>
-      <h3>Apps móviles</h3>
-      <p>Aplicaciones para Android y multiplataforma, conectadas a tu backend. Gestión, clientes y operaciones desde el celular.</p>
-      <div class="service-tags"><span>Android</span><span>Gestión</span><span>Operaciones</span></div>
+      <h3 data-i18n="s7.title">Apps móviles</h3>
+      <p data-i18n="s7.desc">Aplicaciones para Android y multiplataforma, conectadas a tu backend. Gestión, clientes y operaciones desde el celular.</p>
+      <div class="service-tags"><span data-i18n="s7.t1">Android</span><span data-i18n="s7.t2">Gestión</span><span data-i18n="s7.t3">Operaciones</span></div>
     </div>
     <div class="service-item">
       <div class="service-icon">🖥️</div>
-      <h3>Software de escritorio</h3>
-      <p>Programas para Windows a medida: herramientas internas, monitores y sistemas que corren en el equipo del cliente.</p>
-      <div class="service-tags"><span>Windows</span><span>Herramientas internas</span><span>Monitores</span></div>
+      <h3 data-i18n="s8.title">Software de escritorio</h3>
+      <p data-i18n="s8.desc">Programas para Windows a medida: herramientas internas, monitores y sistemas que corren en el equipo del cliente.</p>
+      <div class="service-tags"><span data-i18n="s8.t1">Windows</span><span data-i18n="s8.t2">Herramientas internas</span><span data-i18n="s8.t3">Monitores</span></div>
     </div>
     <div class="service-item">
       <div class="service-icon">🛠️</div>
-      <h3>Sistemas de gestión</h3>
-      <p>Sistemas para administrar tu negocio: órdenes de trabajo, clientes, stock, facturación y todo lo que necesites.</p>
-      <div class="service-tags"><span>Órdenes</span><span>Clientes</span><span>Stock</span></div>
+      <h3 data-i18n="s9.title">Sistemas de gestión</h3>
+      <p data-i18n="s9.desc">Sistemas para administrar tu negocio: órdenes de trabajo, clientes, stock, facturación y todo lo que necesites.</p>
+      <div class="service-tags"><span data-i18n="s9.t1">Órdenes</span><span data-i18n="s9.t2">Clientes</span><span data-i18n="s9.t3">Stock</span></div>
     </div>
   </div>
 </section>
 
 <section class="faq-section" id="preguntas">
-  <div class="section-label">Preguntas</div>
+  <div class="section-label" data-i18n="faq.label">Preguntas</div>
   <div class="faq-list">
     <div class="faq-item">
-      <button type="button" aria-expanded="false">¿Tengo que llegar con todo definido?<span class="mark">+</span></button>
-      <p class="faq-a">No. Si sabés qué tarea te está costando tiempo, alcanza para arrancar. Ordenamos el proceso y te proponemos el sistema.</p>
+      <button type="button" aria-expanded="false"><span data-i18n="faq1.q">¿Tengo que llegar con todo definido?</span><span class="mark">+</span></button>
+      <p class="faq-a" data-i18n="faq1.a">No. Si sabés qué tarea te está costando tiempo, alcanza para arrancar. Ordenamos el proceso y te proponemos el sistema.</p>
     </div>
     <div class="faq-item">
-      <button type="button" aria-expanded="false">¿Es solo para empresas de tecnología?<span class="mark">+</span></button>
-      <p class="faq-a">No. El software es para el negocio: talleres, comercios, equipos internos y cualquiera con tareas que todavía se hacen a mano.</p>
+      <button type="button" aria-expanded="false"><span data-i18n="faq2.q">¿Es solo para empresas de tecnología?</span><span class="mark">+</span></button>
+      <p class="faq-a" data-i18n="faq2.a">No. El software es para el negocio: talleres, comercios, equipos internos y cualquiera con tareas que todavía se hacen a mano.</p>
     </div>
     <div class="faq-item">
-      <button type="button" aria-expanded="false">¿Hacen una prueba chica o el sistema completo?<span class="mark">+</span></button>
-      <p class="faq-a">Las dos. Podemos salir con un MVP rápido o construir el sistema completo, con soporte después de la entrega.</p>
+      <button type="button" aria-expanded="false"><span data-i18n="faq3.q">¿Hacen una prueba chica o el sistema completo?</span><span class="mark">+</span></button>
+      <p class="faq-a" data-i18n="faq3.a">Las dos. Podemos salir con un MVP rápido o construir el sistema completo, con soporte después de la entrega.</p>
     </div>
     <div class="faq-item">
-      <button type="button" aria-expanded="false">¿Desde dónde trabajan?<span class="mark">+</span></button>
-      <p class="faq-a">Desde Argentina y en español. Dejás la consulta en el formulario y te respondemos por mail.</p>
+      <button type="button" aria-expanded="false"><span data-i18n="faq4.q">¿Desde dónde trabajan?</span><span class="mark">+</span></button>
+      <p class="faq-a" data-i18n="faq4.a">Desde Argentina y en español. Dejás la consulta en el formulario y te respondemos por mail.</p>
     </div>
   </div>
 </section>
 
 <section class="contact-section" id="contacto">
   <div class="contact-inner">
-    <h2>Contanos tu<br>proyecto o idea</h2>
-    <p>Dejanos tu consulta y te respondemos a la brevedad. También podés escribirnos por mail o Discord.</p>
+    <h2 data-i18n-html="contact.title">Contanos tu<br>proyecto o idea</h2>
+    <p data-i18n="contact.lead">Dejanos tu consulta y te respondemos a la brevedad. También podés escribirnos por mail o Discord.</p>
     <form class="contact-form" id="contactForm">
       <input type="hidden" name="access_key" value="d65ee5a5-772d-49d7-b258-d942ed4c6ba7">
       <input type="hidden" name="subject" value="Nueva consulta desde spcsoft.github.io">
       <input type="hidden" name="from_name" value="Web SPC Software">
       <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
       <div class="form-row">
-        <div class="field"><input type="text" name="name" placeholder="Tu nombre" required></div>
-        <div class="field"><input type="email" name="email" placeholder="Tu email" required></div>
+        <div class="field"><input type="text" name="name" data-i18n-placeholder="form.name" placeholder="Tu nombre" required></div>
+        <div class="field"><input type="email" name="email" data-i18n-placeholder="form.email" placeholder="Tu email" required></div>
       </div>
       <div class="field">
         <select name="service" required>
-          <option value="" disabled selected>Qué necesitás</option>
-          <option>Automatización</option>
-          <option>Bots</option>
-          <option>Inteligencia artificial</option>
-          <option>Desarrollo web</option>
-          <option>App móvil</option>
-          <option>Software de escritorio</option>
-          <option>Sistema de gestión</option>
-          <option>Backend y APIs</option>
-          <option>Otro</option>
+          <option value="" disabled selected data-i18n="form.service">Qué necesitás</option>
+          <option data-i18n="form.o1">Automatización</option>
+          <option data-i18n="form.o2">Bots</option>
+          <option data-i18n="form.o3">Inteligencia artificial</option>
+          <option data-i18n="form.o4">Desarrollo web</option>
+          <option data-i18n="form.o5">App móvil</option>
+          <option data-i18n="form.o6">Software de escritorio</option>
+          <option data-i18n="form.o7">Sistema de gestión</option>
+          <option data-i18n="form.o8">Backend y APIs</option>
+          <option data-i18n="form.o9">Otro</option>
         </select>
       </div>
-      <div class="field"><textarea name="message" placeholder="Contanos tu proyecto o idea" required></textarea></div>
-      <button type="submit">Enviar</button>
+      <div class="field"><textarea name="message" data-i18n-placeholder="form.message" placeholder="Contanos tu proyecto o idea" required></textarea></div>
+      <button type="submit" data-i18n="form.submit">Enviar</button>
       <div class="form-status" id="formStatus"></div>
     </form>
     <div class="contact-links">
@@ -252,6 +267,158 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-h
 </footer>
 <script>
 (function(){
+  var T={
+    es:{
+      title:'SPC Software — Software, Automatización, Bots e IA',
+      desc:'Software, automatización, bots e IA.',
+      lang:'es',
+      'nav.services':'Servicios','nav.faq':'Preguntas','nav.contact':'Contacto',
+      'hero.proof':'47 negocios ya optimizaron sus tareas',
+      'hero.tag':'Apps · Bots · Automatización · Integraciones',
+      'hero.title':'El trabajo repetitivo,<br><span>lo hace el software.</span>',
+      'hero.lead':'Si una tarea se repite, un sistema puede ocuparse. Armamos apps, bots e inteligencia artificial que automatizan procesos e integran tus plataformas.',
+      'hero.stat1val':'<span>10</span>+ años','hero.stat1label':'de experiencia',
+      'hero.stat2val':'Soporte <span>activo</span>','hero.stat2label':'post entrega',
+      'hero.stat3val':'MVPs <span>rápidos</span>','hero.stat3label':'de la idea al producto',
+      'hero.cta':'Hablemos','hero.ghost':'Ver servicios',
+      'services.label':'Servicios',
+      'services.lead':'Contanos qué te quita tiempo. Si se hace a mano y se repite, lo automatizamos o lo construimos a medida.',
+      's1.title':'Backend y APIs','s1.desc':'Desarrollamos el backend completo: APIs, bases de datos, autenticación e integraciones. Sistemas robustos y escalables por dentro.','s1.t1':'APIs','s1.t2':'Bases de datos','s1.t3':'Autenticación',
+      's2.title':'Arquitectura de negocio','s2.desc':'Modelamos tus procesos y datos en una arquitectura sólida. Del proceso al sistema, pensado para crecer sin rehacerlo.','s2.t1':'Procesos','s2.t2':'Datos','s2.t3':'Para crecer',
+      's3.title':'Inteligencia artificial','s3.desc':'Integramos IA en tus productos y procesos: asistentes, análisis de datos, visión por computadora y automatizaciones inteligentes.','s3.t1':'Asistentes','s3.t2':'Análisis','s3.t3':'Visión',
+      's4.title':'Automatización','s4.desc':'Scripts y procesos para automatizar tareas repetitivas, scraping, integraciones entre sistemas y flujos de trabajo.','s4.t1':'Tareas repetitivas','s4.t2':'Integraciones','s4.t3':'Flujos',
+      's5.title':'Bots','s5.desc':'Bots que automatizan tareas y reconocen información en pantalla o video: monitoreo, control, notificaciones y seguimiento en tiempo real.','s5.t1':'Monitoreo','s5.t2':'Notificaciones','s5.t3':'Tiempo real',
+      's6.title':'Desarrollo web','s6.desc':'Sitios y aplicaciones web a medida. Desde landings simples hasta sistemas con backend, base de datos y panel de administración.','s6.t1':'Landings','s6.t2':'Sistemas','s6.t3':'Panel admin',
+      's7.title':'Apps móviles','s7.desc':'Aplicaciones para Android y multiplataforma, conectadas a tu backend. Gestión, clientes y operaciones desde el celular.','s7.t1':'Android','s7.t2':'Gestión','s7.t3':'Operaciones',
+      's8.title':'Software de escritorio','s8.desc':'Programas para Windows a medida: herramientas internas, monitores y sistemas que corren en el equipo del cliente.','s8.t1':'Windows','s8.t2':'Herramientas internas','s8.t3':'Monitores',
+      's9.title':'Sistemas de gestión','s9.desc':'Sistemas para administrar tu negocio: órdenes de trabajo, clientes, stock, facturación y todo lo que necesites.','s9.t1':'Órdenes','s9.t2':'Clientes','s9.t3':'Stock',
+      'faq.label':'Preguntas',
+      'faq1.q':'¿Tengo que llegar con todo definido?','faq1.a':'No. Si sabés qué tarea te está costando tiempo, alcanza para arrancar. Ordenamos el proceso y te proponemos el sistema.',
+      'faq2.q':'¿Es solo para empresas de tecnología?','faq2.a':'No. El software es para el negocio: talleres, comercios, equipos internos y cualquiera con tareas que todavía se hacen a mano.',
+      'faq3.q':'¿Hacen una prueba chica o el sistema completo?','faq3.a':'Las dos. Podemos salir con un MVP rápido o construir el sistema completo, con soporte después de la entrega.',
+      'faq4.q':'¿Desde dónde trabajan?','faq4.a':'Desde Argentina. Dejás la consulta en el formulario y te respondemos por mail. Trabajamos en español, inglés y portugués.',
+      'contact.title':'Contanos tu<br>proyecto o idea',
+      'contact.lead':'Dejanos tu consulta y te respondemos a la brevedad. También podés escribirnos por mail o Discord.',
+      'form.name':'Tu nombre','form.email':'Tu email','form.service':'Qué necesitás',
+      'form.o1':'Automatización','form.o2':'Bots','form.o3':'Inteligencia artificial','form.o4':'Desarrollo web','form.o5':'App móvil','form.o6':'Software de escritorio','form.o7':'Sistema de gestión','form.o8':'Backend y APIs','form.o9':'Otro',
+      'form.message':'Contanos tu proyecto o idea','form.submit':'Enviar',
+      'form.sending':'Enviando…','form.ok':'¡Gracias! Tu mensaje fue enviado. Te respondemos pronto.','form.err':'Hubo un problema al enviar. Escribinos a spsoft.adm@gmail.com.'
+    },
+    en:{
+      title:'SPC Software — Software, Automation, Bots & AI',
+      desc:'Software, automation, bots and AI.',
+      lang:'en',
+      'nav.services':'Services','nav.faq':'FAQ','nav.contact':'Contact',
+      'hero.proof':'47 businesses already optimized their workflows',
+      'hero.tag':'Apps · Bots · Automation · Integrations',
+      'hero.title':'Repetitive work<br><span>is handled by software.</span>',
+      'hero.lead':'If a task keeps repeating, a system can take it. We build apps, bots and AI that automate processes and connect your platforms.',
+      'hero.stat1val':'<span>10</span>+ years','hero.stat1label':'of experience',
+      'hero.stat2val':'Active <span>support</span>','hero.stat2label':'after delivery',
+      'hero.stat3val':'Fast <span>MVPs</span>','hero.stat3label':'from idea to product',
+      'hero.cta':'Let\'s talk','hero.ghost':'See services',
+      'services.label':'Services',
+      'services.lead':'Tell us what is taking your time. If it is done by hand and it repeats, we automate it or build it custom.',
+      's1.title':'Backend & APIs','s1.desc':'We build the full backend: APIs, databases, authentication and integrations. Robust, scalable systems under the hood.','s1.t1':'APIs','s1.t2':'Databases','s1.t3':'Authentication',
+      's2.title':'Business architecture','s2.desc':'We model your processes and data into a solid architecture. From process to system, designed to grow without starting over.','s2.t1':'Processes','s2.t2':'Data','s2.t3':'Built to scale',
+      's3.title':'Artificial intelligence','s3.desc':'We add AI to your products and workflows: assistants, data analysis, computer vision and intelligent automation.','s3.t1':'Assistants','s3.t2':'Analysis','s3.t3':'Vision',
+      's4.title':'Automation','s4.desc':'Scripts and processes to automate repetitive tasks, scraping, system integrations and workflows.','s4.t1':'Repetitive tasks','s4.t2':'Integrations','s4.t3':'Workflows',
+      's5.title':'Bots','s5.desc':'Bots that automate tasks and read information on screen or video: monitoring, control, notifications and real-time tracking.','s5.t1':'Monitoring','s5.t2':'Notifications','s5.t3':'Real time',
+      's6.title':'Web development','s6.desc':'Custom websites and web apps. From simple landings to systems with backend, database and an admin panel.','s6.t1':'Landings','s6.t2':'Systems','s6.t3':'Admin panel',
+      's7.title':'Mobile apps','s7.desc':'Android and cross-platform apps connected to your backend. Operations, clients and management from the phone.','s7.t1':'Android','s7.t2':'Management','s7.t3':'Operations',
+      's8.title':'Desktop software','s8.desc':'Custom Windows programs: internal tools, monitors and systems that run on the client machine.','s8.t1':'Windows','s8.t2':'Internal tools','s8.t3':'Monitors',
+      's9.title':'Management systems','s9.desc':'Systems to run your business: work orders, clients, stock, billing and whatever you need.','s9.t1':'Orders','s9.t2':'Clients','s9.t3':'Stock',
+      'faq.label':'FAQ',
+      'faq1.q':'Do I need everything defined first?','faq1.a':'No. If you know which task is costing you time, that is enough to start. We map the process and propose the system.',
+      'faq2.q':'Is this only for tech companies?','faq2.a':'No. Software is for the business: workshops, shops, internal teams and anyone still doing work by hand.',
+      'faq3.q':'Do you build a small test or the full system?','faq3.a':'Both. We can ship a fast MVP or build the complete system, with support after delivery.',
+      'faq4.q':'Where do you work from?','faq4.a':'From Argentina. Leave your question in the form and we reply by email. We work in Spanish, English and Portuguese.',
+      'contact.title':'Tell us about your<br>project or idea',
+      'contact.lead':'Leave your question and we will get back to you soon. You can also write by email or Discord.',
+      'form.name':'Your name','form.email':'Your email','form.service':'What you need',
+      'form.o1':'Automation','form.o2':'Bots','form.o3':'Artificial intelligence','form.o4':'Web development','form.o5':'Mobile app','form.o6':'Desktop software','form.o7':'Management system','form.o8':'Backend & APIs','form.o9':'Other',
+      'form.message':'Tell us about your project or idea','form.submit':'Send',
+      'form.sending':'Sending…','form.ok':'Thanks! Your message was sent. We will reply soon.','form.err':'There was a problem sending. Email us at spsoft.adm@gmail.com.'
+    },
+    pt:{
+      title:'SPC Software — Software, Automação, Bots e IA',
+      desc:'Software, automação, bots e IA.',
+      lang:'pt',
+      'nav.services':'Serviços','nav.faq':'Perguntas','nav.contact':'Contato',
+      'hero.proof':'47 negócios já otimizaram suas tarefas',
+      'hero.tag':'Apps · Bots · Automação · Integrações',
+      'hero.title':'O trabalho repetitivo,<br><span>o software faz.</span>',
+      'hero.lead':'Se uma tarefa se repete, um sistema pode cuidar dela. Montamos apps, bots e inteligência artificial que automatizam processos e integram suas plataformas.',
+      'hero.stat1val':'<span>10</span>+ anos','hero.stat1label':'de experiência',
+      'hero.stat2val':'Suporte <span>ativo</span>','hero.stat2label':'pós-entrega',
+      'hero.stat3val':'MVPs <span>rápidos</span>','hero.stat3label':'da ideia ao produto',
+      'hero.cta':'Vamos conversar','hero.ghost':'Ver serviços',
+      'services.label':'Serviços',
+      'services.lead':'Conte o que está tomando seu tempo. Se é feito à mão e se repete, automatizamos ou construímos sob medida.',
+      's1.title':'Backend e APIs','s1.desc':'Desenvolvemos o backend completo: APIs, bancos de dados, autenticação e integrações. Sistemas robustos e escaláveis por dentro.','s1.t1':'APIs','s1.t2':'Bancos de dados','s1.t3':'Autenticação',
+      's2.title':'Arquitetura de negócio','s2.desc':'Modelamos seus processos e dados em uma arquitetura sólida. Do processo ao sistema, pensado para crescer sem refazer.','s2.t1':'Processos','s2.t2':'Dados','s2.t3':'Para crescer',
+      's3.title':'Inteligência artificial','s3.desc':'Integramos IA nos seus produtos e processos: assistentes, análise de dados, visão computacional e automações inteligentes.','s3.t1':'Assistentes','s3.t2':'Análise','s3.t3':'Visão',
+      's4.title':'Automação','s4.desc':'Scripts e processos para automatizar tarefas repetitivas, scraping, integrações entre sistemas e fluxos de trabalho.','s4.t1':'Tarefas repetitivas','s4.t2':'Integrações','s4.t3':'Fluxos',
+      's5.title':'Bots','s5.desc':'Bots que automatizam tarefas e reconhecem informação na tela ou no vídeo: monitoramento, controle, notificações e acompanhamento em tempo real.','s5.t1':'Monitoramento','s5.t2':'Notificações','s5.t3':'Tempo real',
+      's6.title':'Desenvolvimento web','s6.desc':'Sites e aplicações web sob medida. De landings simples a sistemas com backend, banco de dados e painel de administração.','s6.t1':'Landings','s6.t2':'Sistemas','s6.t3':'Painel admin',
+      's7.title':'Apps móveis','s7.desc':'Aplicativos para Android e multiplataforma, conectados ao seu backend. Gestão, clientes e operações pelo celular.','s7.t1':'Android','s7.t2':'Gestão','s7.t3':'Operações',
+      's8.title':'Software desktop','s8.desc':'Programas para Windows sob medida: ferramentas internas, monitores e sistemas que rodam no computador do cliente.','s8.t1':'Windows','s8.t2':'Ferramentas internas','s8.t3':'Monitores',
+      's9.title':'Sistemas de gestão','s9.desc':'Sistemas para administrar o seu negócio: ordens de serviço, clientes, estoque, faturamento e tudo o que precisar.','s9.t1':'Ordens','s9.t2':'Clientes','s9.t3':'Estoque',
+      'faq.label':'Perguntas',
+      'faq1.q':'Preciso chegar com tudo definido?','faq1.a':'Não. Se você sabe qual tarefa está custando tempo, já dá para começar. Organizamos o processo e propomos o sistema.',
+      'faq2.q':'É só para empresas de tecnologia?','faq2.a':'Não. O software é para o negócio: oficinas, comércios, equipes internas e qualquer um com tarefas que ainda são feitas à mão.',
+      'faq3.q':'Vocês fazem um teste pequeno ou o sistema completo?','faq3.a':'Os dois. Podemos sair com um MVP rápido ou construir o sistema completo, com suporte depois da entrega.',
+      'faq4.q':'De onde vocês trabalham?','faq4.a':'Da Argentina. Deixe a consulta no formulário e respondemos por e-mail. Atendemos em espanhol, inglês e português.',
+      'contact.title':'Conte-nos o seu<br>projeto ou ideia',
+      'contact.lead':'Deixe sua consulta e respondemos em breve. Também pode nos escrever por e-mail ou Discord.',
+      'form.name':'Seu nome','form.email':'Seu e-mail','form.service':'O que você precisa',
+      'form.o1':'Automação','form.o2':'Bots','form.o3':'Inteligência artificial','form.o4':'Desenvolvimento web','form.o5':'App móvel','form.o6':'Software desktop','form.o7':'Sistema de gestão','form.o8':'Backend e APIs','form.o9':'Outro',
+      'form.message':'Conte-nos o seu projeto ou ideia','form.submit':'Enviar',
+      'form.sending':'Enviando…','form.ok':'Obrigado! Sua mensagem foi enviada. Respondemos em breve.','form.err':'Houve um problema ao enviar. Escreva para spsoft.adm@gmail.com.'
+    }
+  };
+
+  var current='es';
+  function detectLang(){
+    try{
+      var saved=localStorage.getItem('spc-lang');
+      if(saved&&T[saved]) return saved;
+    }catch(e){}
+    var nav=(navigator.language||'es').toLowerCase();
+    if(nav.indexOf('en')===0) return 'en';
+    if(nav.indexOf('pt')===0) return 'pt';
+    return 'es';
+  }
+  function apply(lang){
+    if(!T[lang]) lang='es';
+    current=lang;
+    var dict=T[lang];
+    document.documentElement.lang=dict.lang;
+    document.title=dict.title;
+    var meta=document.querySelector('meta[name="description"]');
+    if(meta) meta.setAttribute('content',dict.desc);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k=el.getAttribute('data-i18n');
+      if(dict[k]!=null) el.textContent=dict[k];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(function(el){
+      var k=el.getAttribute('data-i18n-html');
+      if(dict[k]!=null) el.innerHTML=dict[k];
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el){
+      var k=el.getAttribute('data-i18n-placeholder');
+      if(dict[k]!=null) el.setAttribute('placeholder',dict[k]);
+    });
+    document.querySelectorAll('.lang-switch button').forEach(function(b){
+      b.classList.toggle('active',b.getAttribute('data-lang')===lang);
+    });
+    try{localStorage.setItem('spc-lang',lang);}catch(e){}
+  }
+  document.querySelectorAll('.lang-switch button').forEach(function(b){
+    b.addEventListener('click',function(){apply(b.getAttribute('data-lang'));});
+  });
+  apply(detectLang());
+
   document.querySelectorAll('.faq-item button').forEach(function(btn){
     btn.addEventListener('click',function(){
       var item=btn.parentElement;
@@ -274,7 +441,8 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-h
   var btn=form.querySelector('button[type=submit]');
   form.addEventListener('submit',function(e){
     e.preventDefault();
-    status.className='form-status';status.textContent='Enviando…';
+    var dict=T[current];
+    status.className='form-status';status.textContent=dict['form.sending'];
     btn.disabled=true;
     fetch('https://api.web3forms.com/submit',{
       method:'POST',
@@ -283,15 +451,16 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-h
     }).then(function(r){return r.json();}).then(function(data){
       if(data.success){
         status.className='form-status ok';
-        status.textContent='¡Gracias! Tu mensaje fue enviado. Te respondemos pronto.';
+        status.textContent=dict['form.ok'];
         form.reset();
+        apply(current);
       }else{
         status.className='form-status err';
-        status.textContent='Hubo un problema al enviar. Escribinos a spsoft.adm@gmail.com.';
+        status.textContent=dict['form.err'];
       }
     }).catch(function(){
       status.className='form-status err';
-      status.textContent='Hubo un problema al enviar. Escribinos a spsoft.adm@gmail.com.';
+      status.textContent=dict['form.err'];
     }).finally(function(){btn.disabled=false;});
   });
 })();
